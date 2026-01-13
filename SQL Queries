@@ -10,3 +10,6 @@
 
 4. enter username as: D2@d2
 (user is now connecting to database d2)
+
+5. commit; or exit
+(exits cmd and saves all changes)
