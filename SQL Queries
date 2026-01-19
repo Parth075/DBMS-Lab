@@ -13,3 +13,61 @@
 
 5. commit; or exit
 (exits cmd and saves all changes)
+
+
+
+DDL
+create: To create table, procedury
+Table:-(st.info)
+	Create table st.info(PRN int, Name varchar(20),M1 number, M2 number, 	M3 number);
+3. Alter: modify the structure of the table
+	Alter table st.info add Total number;
+	Alter table st.info add percentage number;
+	
+4. Truncate: To delete all the data but not table
+	Truncate table st.info;
+
+5. Drop: Table will be deleted
+	Drop table st.info;
+
+6. Rename: Rename tables, columns in DBMS
+	Alter table st.info Rename to st.information;
+	Alter table st.information Rename M1 to Phy;
+	Alter table st.information Rename M2 to Chem;
+	Alter table st.information Rename M3 to Maths;
+
+7. To see attributes in the table
+	desc st.info
+
+DDL language auto commits so changes are saved even without using commit and exit command.
+
+
+
+DML
+Insert command: Data into table  (Characters are inserted as string in'')
+	Insert in st.info values(101, 'xyz', 55, 55, 55,null,null);
+				OR
+	Insert in st.info(101,'xyz',55,55,55)values(PRN,variable,M1,M2,M3);
+
+2. Update: Update the columns
+	update st.info set total=M1+M2+M3;
+	update st.info set percentage=total/3;
+			OR
+	update st.info set total=M1+M2+M3, percentage=total/3;
+
+
+Create table D2.info(PRN int, Name varchar(20),M1 number, M2 number, M3 number);
+Alter table D2.info add Total number;
+Alter table D2.info add percentage number;
+Insert into D2.info values(101, 'xyz', 55, 55, 55,null,null);
+Insert into D2.info values(102, 's1', 74, 64, 36,null,null);
+Insert into D2.info values(103, 's2', 74, 57, 28,null,null);
+Insert into D2.info values(104, 's3', 57, 59, 55,null,null);
+Insert into D2.info values(105, 's4', 47, 81, 61,null,null);
+Insert into D2.info values(106, 's5', 84, 43, 50,null,null);
+Insert into D2.info values(107, 's6', 24, 64, 72,null,null);
+Insert into D2.info values(108, 's7', 87, 98, 35,null,null);
+Insert into D2.info values(109, 's8', 39, 75, 65,null,null);
+Insert into D2.info values(110, 's9', 75, 64, 90,null,null);
+update D2.info set total=M1+M2+M3;
+update D2.info set percentage=total/3;
