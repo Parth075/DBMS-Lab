@@ -307,3 +307,18 @@ find the name of all departments whose building name include the substring "sci"
 select * from department where lower(name) like '%sci%';
 
 select length(name) as total_length from instructor;
+
+ALTER TABLE instructorADD hiredate DATE;
+UPDATE instructor SET hiredate = DATE '2023-11-01' WHERE instructor_id = 1;
+
+UPDATE instructor SET hiredate = DATE '2023-07-05' WHERE instructor_id = 2;
+
+UPDATE instructor SET hiredate = DATE '2022-03-11' WHERE instructor_id = 3;
+
+UPDATE instructor SET hiredate = DATE '2024-01-14' WHERE instructor_id = 4;
+
+UPDATE instructor SET hiredate = DATE '2023-12-21' WHERE instructor_id = 5;
+
+UPDATE instructor SET hiredate = DATE '2023-08-23' WHERE instructor_id = 6;
+
+UPDATE instructor SET hiredate = DATE '2023-06-13' WHERE instructor_id = 7;
