@@ -1,0 +1,72 @@
+CREATE OR REPLACE PROCEDURE SumFirst10Numbers_WhileLoop AS
+    i NUMBER := 1;
+    sum1 NUMBER := 0;
+BEGIN
+    WHILE i <= 10 LOOP
+        sum1 := sum1 + i;
+        i := i + 1;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Sum of first 10 numbers using WHILE loop: ' || sum1);
+END;
+/
+SET SERVEROUTPUT ON;
+EXEC SumFirst10Numbers_WhileLoop;
+
+CREATE OR REPLACE PROCEDURE SumFirst10EvenNumbers_ForLoop AS
+    sum1 NUMBER := 0;
+BEGIN
+    FOR i IN 1..10 LOOP
+        sum1 := sum1 + (2 * i);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Sum of first 10 even numbers using FOR loop: ' || sum1);
+END;
+/
+EXEC SumFirst10EvenNumbers_ForLoop;
+
+
+CREATE OR REPLACE PROCEDURE result_proc
+IS
+   cs NUMBER := 45;
+   os NUMBER := 75;
+   dbms NUMBER := 0;
+   m3 NUMBER := 95;
+
+   total NUMBER;
+   percentage NUMBER;
+   grade CHAR(1);
+   result VARCHAR2(10);
+BEGIN
+   total := cs + os + dbms + m3;
+   percentage := total / 4;
+
+   IF cs < 40 OR os < 40 OR dbms < 40 OR m3 < 40 THEN
+      result := 'FAIL';
+      grade := 'F';
+   ELSE
+      result := 'PASS';
+
+      IF percentage >= 75 THEN
+         grade := 'A';
+      ELSIF percentage >= 60 THEN
+         grade := 'B';
+      ELSIF percentage >= 50 THEN
+         grade := 'C';
+      ELSIF percentage >= 40 THEN
+         grade := 'D';
+      ELSE
+         grade := 'F';
+      END IF;
+   END IF;
+
+   DBMS_OUTPUT.PUT_LINE('CS: ' || cs);
+   DBMS_OUTPUT.PUT_LINE('OS: ' || os);
+   DBMS_OUTPUT.PUT_LINE('DBMS: ' || dbms);
+   DBMS_OUTPUT.PUT_LINE('M3: ' || m3);
+   DBMS_OUTPUT.PUT_LINE('Total: ' || total);
+   DBMS_OUTPUT.PUT_LINE('Percentage: ' || percentage);
+   DBMS_OUTPUT.PUT_LINE('Grade: ' || grade);
+   DBMS_OUTPUT.PUT_LINE('Result: ' || result);
+
+END;
+/
+EXEC result_proc;
